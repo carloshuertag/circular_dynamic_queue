@@ -40,13 +40,12 @@ void main() {
                 exit(0);
                 break;
             case 1:
-                puts("Cola de caracteres creada");
+                puts("Created char queue");
                 charQueue = createQueue();
                 break;
             case 2:
-                puts("Cola de enteros creada");
-				scanf("%d", &intQueueSize);
-                intQueue = createiQueue(intQueueSize);
+                puts("Created int queue");
+                intQueue = createiQueue();
                 break;
             case 3:
                 printQueue(charQueue);
@@ -112,7 +111,6 @@ void main() {
 					fflush(stdin);
 					printf("Introduzca el caracter: ");
 					fflush(stdin);
-					scanf("%d", &newInt);
 					scanf("%d", &newInt);
 					ienQueue(newInt, intQueue);
 				} else 
