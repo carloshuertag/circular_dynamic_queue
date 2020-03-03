@@ -54,28 +54,28 @@ void main() {
                 printiQueue(intQueue);
                 break;
             case 5:
-                newChar = queueFront(charQueue);
+                newChar = front(charQueue);
                 if(newChar != CHAR_MIN)
                     printf("\nFront: %c\n", newChar);
                 else
                     puts("Current queue is empty");
                 break;
             case 6:
-                newInt = iqueueFront(intQueue);
+                newInt = iFront(intQueue);
                 if(newInt != INT_MIN)
                     printf("\nFront: %d\n", newInt);
                 else
                     puts("Current queue is empty");
                 break;
             case 7:
-                newChar = queueRear(charQueue);
+                newChar = rear(charQueue);
                 if(newChar != CHAR_MIN)
                     printf("\nRear: %c\n", newInt);
                 else
                     puts("Current queue is empty");
                 break;
             case 8:
-                newInt = iqueueRear(intQueue);
+                newInt = iRear(intQueue);
                 if(newInt != INT_MIN)
                     printf("\nRear: %d\n", newInt);
                 else
@@ -96,7 +96,7 @@ void main() {
                     puts("Current queue is empty");
                 break;
             case 11:
-                if(charQueue && !queueIsFull(charQueue)){
+                if(charQueue){
 					fflush(stdin);
 					printf("Introduzca el caracter: ");
 					fflush(stdin);
@@ -107,7 +107,7 @@ void main() {
 					puts("Current queue is empty");
                 break;
             case 12:
-                if(intQueue && !iqueueIsFull(intQueue)){
+                if(intQueue){
 					fflush(stdin);
 					printf("Introduzca el caracter: ");
 					fflush(stdin);
