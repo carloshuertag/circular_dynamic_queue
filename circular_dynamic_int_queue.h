@@ -43,7 +43,7 @@ iQueueElement * createiQueueElement(iQueueEntry item) {
 
 void ienQueue(iQueueEntry item, iQueue * queue) {
     iQueueElement* element = createiQueueElement(item);
-    if(queue->front == NULL)
+    if(iqueueIsEmpty(queue))
         queue->front = element;
     else
         queue->rear->next = element;
@@ -52,19 +52,19 @@ void ienQueue(iQueueEntry item, iQueue * queue) {
 }
 
 iQueueEntry iFront(iQueue * queue) {
-    if(iqueueIsEmpty)
+    if(iqueueIsEmpty(queue))
         return INT_MIN;
     return queue->front->entry;
 }
 
 iQueueEntry iRear(iQueue * queue) {
-    if(iqueueIsEmpty)
+    if(iqueueIsEmpty(queue))
         return INT_MIN;
     return queue->rear->entry;
 }
 
 iQueueEntry ideQueue(iQueue * queue) {
-    if(iqueueIsEmpty)
+    if(iqueueIsEmpty(queue))
         return INT_MIN;
     iQueueEntry dequeued;
     if(queue->front == queue->rear){
@@ -83,7 +83,7 @@ iQueueEntry ideQueue(iQueue * queue) {
 }
 
 void printiQueue(iQueue * queue) {
-    if(iqueueIsEmpty){
+    if(iqueueIsEmpty(queue)){
         puts("[ ]");
         return;
     }
@@ -96,7 +96,7 @@ void printiQueue(iQueue * queue) {
 }
 
 void cleariQueue(iQueue * queue) {
-    if(!iqueueIsEmpty){
+    if(!iqueueIsEmpty(queue)){
         iQueueElement* element;
         while ((element = queue->front) != queue->front) {
             queue->front = queue->front->next;

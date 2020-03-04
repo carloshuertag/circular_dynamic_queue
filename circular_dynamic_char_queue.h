@@ -8,7 +8,7 @@
 #include <limits.h>
 #include <stdbool.h>
 
-typedef int QueueEntry;
+typedef char QueueEntry;
 
 typedef struct QueueElement{
     QueueEntry entry;
@@ -43,7 +43,7 @@ QueueElement * createQueueElement(QueueEntry item) {
 
 void enQueue(QueueEntry item, Queue * queue) {
     QueueElement* element = createQueueElement(item);
-    if(queue->front == NULL)
+    if(queueIsEmpty(queue))
         queue->front = element;
     else
         queue->rear->next = element;
@@ -52,19 +52,19 @@ void enQueue(QueueEntry item, Queue * queue) {
 }
 
 QueueEntry front(Queue * queue) {
-    if(queueIsEmpty)
+    if(queueIsEmpty(queue))
         return CHAR_MIN;
     return queue->front->entry;
 }
 
 QueueEntry rear(Queue * queue) {
-    if(queueIsEmpty)
+    if(queueIsEmpty(queue))
         return CHAR_MIN;
     return queue->rear->entry;
 }
 
 QueueEntry deQueue(Queue * queue) {
-    if(queueIsEmpty)
+    if(queueIsEmpty(queue))
         return CHAR_MIN;
     QueueEntry dequeued;
     if(queue->front == queue->rear){
@@ -83,7 +83,7 @@ QueueEntry deQueue(Queue * queue) {
 }
 
 void printQueue(Queue * queue) {
-    if(queueIsEmpty){
+    if(queueIsEmpty(queue)){
         puts("[ ]");
         return;
     }
@@ -96,7 +96,7 @@ void printQueue(Queue * queue) {
 }
 
 void clearQueue(Queue * queue) {
-    if(!queueIsEmpty){
+    if(!queueIsEmpty(queue)){
         QueueElement* element;
         while ((element = queue->front) != queue->front) {
             queue->front = queue->front->next;
