@@ -3,16 +3,13 @@
  * @author: Carlos Huerta García
  * @description: Displays a menu to execute queue functions with int and char dynamic circular queues
  * **************************************************************************************************/
-#include <stdlib.h>
-#include <stdio.h>
-#include <limits.h>
 #include "circular_dynamic_char_queue.h"
 #include "circular_dynamic_int_queue.h"
 void main() {
     iQueue * intQueue = NULL;
     Queue * charQueue = NULL;
     char go = 's', newChar;
-	int option, charQueueSize, intQueueSize, newInt;
+	int option, newInt;
 	do{
         puts("0 Salir");
 		puts("1 Crear cola de caracteres");
